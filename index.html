@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Javascript 3</title>
+</head>
+
+<body>
+    <script>
+        // 1
+        const myObject1 = { a: 'one', b: '2', f: '5', c: '33', p: 'do', q: 'one' };
+        const keysArray = Object.keys(myObject1).reverse();
+        console.log(keysArray);
+
+        // 2
+        const myObject = {
+            data: [
+                { a: 'one', id: '22' },
+                { a: 'four', id: '7' },
+                { a: 'six', b: '2' },
+                { a: 'sixty', id: '24' },
+                { a: 'five', id: '212' }
+            ]
+        };
+
+        function removeDataItem(obj, idToRemove) {
+            obj.data = obj.data.filter(item => item.id !== idToRemove);
+            return obj;
+        }
+
+        const updatedObject = removeDataItem(myObject, '24');
+        console.log(updatedObject);
+
+        // 3
+
+        function browserInfo() {
+            //a
+            const screenHeight = window.screen.height;
+            console.log("Browser Height:", screenHeight);
+
+            //b
+            const hostName = window.location.hostname;
+            console.log("Web Host:", hostName);
+
+            // c
+            if (window.location.protocol !== "https:") {
+                console.warn("Warning: This website is not using HTTPS.  Your connection may not be secure.");
+            }
+
+            //d
+            let hasRefreshed = localStorage.getItem('hasRefreshed');
+
+            if (hasRefreshed) {
+                localStorage.removeItem('hasRefreshed');
+                setTimeout(() => {
+                    alert("Welcome back!");
+                }, 0);
+            } else {
+                localStorage.setItem('hasRefreshed', true);
+            }
+        }
+
+        window.addEventListener('load', browserInfo);
+
+        // 4
+
+        function storeAndRetrieveDetails() {
+            const details = {
+                name: "Jesna",
+                age: 22,
+                city: "calicut"
+            };
+
+            localStorage.setItem('userDetails', JSON.stringify(details));
+
+            const storedDetails = localStorage.getItem('userDetails');
+            if (storedDetails) {
+                const parsedDetails = JSON.parse(storedDetails);
+                console.log("Stored Details:", parsedDetails);
+            }
+
+
+            setTimeout(() => {
+                localStorage.removeItem('userDetails');
+                console.log("Details deleted from localStorage.");
+            }, 60000);
+
+        }
+
+        window.addEventListener('load', storeAndRetrieveDetails);
+
+
+        // 5
+        // window.location.href = "https://www.google.com";
+
+    </script>
+</body>
+
+</html>
