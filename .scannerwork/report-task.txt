@@ -1,0 +1,6 @@
+projectKey=javascript3
+serverUrl=http://localhost:9099
+serverVersion=25.2.0.102705
+dashboardUrl=http://localhost:9099/dashboard?id=javascript3
+ceTaskId=20a14ff2-289e-4a20-a0a4-53142a411551
+ceTaskUrl=http://localhost:9099/api/ce/task?id=20a14ff2-289e-4a20-a0a4-53142a411551
